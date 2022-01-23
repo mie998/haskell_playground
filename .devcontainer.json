@@ -1,5 +1,6 @@
 // Stack package manager doesn't seem to work on apple sillicon without simulating layer, that is called Rosetta2.
 // Using the docker on M1 mac isn't good choice for the time being.
+// Use cabal or something.
 {
   "name": "HaskellDevContainer",
   "image": "haskell:latest",
