@@ -43,6 +43,6 @@ result :: Ord a => [a] -> [(Int, a)]
 result vs = sort [(count v vs, v) | v <- rmdups vs]
 
 main = do
-  print(transmit )
+  print()
 
 
