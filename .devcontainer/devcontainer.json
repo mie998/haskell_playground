@@ -3,6 +3,6 @@
 // Use cabal or something.
 {
   "name": "HaskellDevContainer",
-  "image": "haskell:latest",
+  "build": { "dockerfile": "Dockerfile", "context": ".." },
   "extensions": ["haskell.haskell"]
 }
