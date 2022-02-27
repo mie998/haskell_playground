@@ -46,15 +46,17 @@ type State = Int
 newtype ST a = S (State -> (a,State))
 
 app :: ST a -> State -> (a,State)
-app (S st) x = st x
+app (S st) = st
 
 instance Functor ST where
   fmap g st = S (\s -> let (x,s') = app st s in (g x, s'))
+
 instance Applicative ST where
   pure x = S (\s -> (x,s))
   stf <*> stx = S (\s ->
     let (f,s') = app stf s
         (x,s'') = app stx s' in (f x, s'')) 
+
 instance Monad ST where
   st >>= f = S (\s -> let (x,s') = app st s in app (f x) s')
 
@@ -82,3 +84,11 @@ mlabel (Node l r) = do
   l' <- mlabel l
   r' <- mlabel r
   return (Node l' r')
+
+mapM :: Monad m => (a -> m b) -> [a] -> m [b]
+mapM f [] = return []
+mapM f (x:xs) = do
+  y <- f x
+  ys <- Main.mapM f xs
+  return (y:ys)
+
