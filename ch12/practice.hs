@@ -3,9 +3,6 @@
 -- instance Functor Tree where
 --   fmap f (Leaf x) = Leaf (f x)
 --   fmap f (Node l r) = Node (fmap f l) (fmap f r)
--- instance Applicative Tree where
---   pure = Leaf
---   (Leaf x) <*> x = Leaf x
 
 
 -- data Maybe2 = Just | Nothing
