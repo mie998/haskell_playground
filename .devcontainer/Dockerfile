@@ -33,6 +33,9 @@ RUN bash -c "ghcup set cabal 3.4.0.0"
 RUN bash -c "ghcup install ghc 8.10.7"
 RUN bash -c "ghcup set ghc 8.10.7"
 
+# Install haskell-language-server
+RUN bash -c "ghcup install hls"
+
 # Update Path to include Cabal and GHC exports
 RUN bash -c "echo PATH="$HOME/.local/bin:$PATH" >> $HOME/.bashrc"
 RUN bash -c "echo export LD_LIBRARY_PATH="/usr/local/lib:$LD_LIBRARY_PATH" >> $HOME/.bashrc"
@@ -40,3 +43,6 @@ RUN bash -c "source $HOME/.bashrc"
 
 # Update cabal
 RUN bash -c "cabal update"
+
+# setup private-key for git-ssh
+ENTRYPOINT ["entrypoint.sh"]
