@@ -19,6 +19,7 @@ solve (x:xs) n l r = case x of
   'R' -> solve xs (n+1) (l ++ [head r]) (head r : n : drop 1 r)
   _ -> []
 
+
 readIntFromBS :: B.ByteString -> Int
 readIntFromBS = fst . fromJust . B.readInt
 
