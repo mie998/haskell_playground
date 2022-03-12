@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "haskell.haskell",
-    "streetsidesoftware.code-spell-checker"
-  ]
+  "recommendations": ["haskell.haskell"]
 }

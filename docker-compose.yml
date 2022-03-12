@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  haskell-vsc:
+    build:
+      context: .
+      dockerfile: .devcontainer/Dockerfile
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    secrets:
+      - id_rsa
+    volumes:
+      - .:/workspace
+secrets:
+  id_rsa:
+    file: ~/.ssh/id_rsa

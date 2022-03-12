@@ -45,4 +45,7 @@ RUN bash -c "source $HOME/.bashrc"
 RUN bash -c "cabal update"
 
 # setup private-key for git-ssh
-ENTRYPOINT ["entrypoint.sh"]
+RUN bash -c "mkdir -p /root/.ssh && ln -s /run/secrets/id_rsa /root/.ssh/id_rsa"
+RUN bash -c "chown -R root:root /root/.ssh"
+RUN bash -c "chmod -R 0600 /root/.ssh"
+RUN bash -c "git config --global core.sshCommand \"ssh -i /root/.ssh/id_rsa\" /dev/null"

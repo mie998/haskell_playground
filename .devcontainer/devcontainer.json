@@ -1,5 +1,8 @@
 {
   "name": "HaskellDevContainer",
-  "build": { "dockerfile": "Dockerfile", "context": ".." },
+  // "build": { "dockerfile": "Dockerfile", "context": ".." },
+  "service": "haskell-vsc",
+  "workspaceFolder": "/workspace",
+  "dockerComposeFile": "../docker-compose.yml",
   "extensions": ["haskell.haskell", "justusadam.language-haskell"]
 }
