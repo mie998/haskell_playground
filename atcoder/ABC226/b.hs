@@ -14,9 +14,9 @@ import qualified Data.Set as S
 
 main = do
   n <- getIntInLine
-  let set = S.fromList [""]
+  let set = S.fromList []
   vo <- V.replicateM n B.getLine
-  print (solve vo set - 1)
+  print $ solve vo set
 
 solve :: V.Vector B.ByteString -> S.Set B.ByteString -> Int
 solve v set
